@@ -7,4 +7,4 @@ NASA Mars News, NASA Mars Space Image, NASA Twitter and U.S Geological survey si
 - NASA Twitter: NASA twitter feed contains Mars weather information. We scrape NASA’s twitter feed to identify the latest weather post. Any non-weather posts are ignored.
 - U.S Geological Survey: Scrape was to collect the recent pictures of the hemispheres of Mars.
 
-![Mars web page](images/webpag1.png)
+![Mars web page](Images/webpag1.png)
