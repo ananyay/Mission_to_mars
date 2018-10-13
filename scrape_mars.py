@@ -7,16 +7,16 @@ import pymongo
 import pandas as pd
 import time 
 
-
+# initialize the browser 
 def init_browser():
     executable_path = {'executable_path':'chromedriver.exe'}
     return Browser('chrome',**executable_path,headless=False)
 
-
+# define a function and include all the code for scraping the websites
 def scrape():
     browser = init_browser()
     mars_data = {}
-#part1 
+#### NASA Mars News  
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
     html = browser.html
@@ -46,7 +46,7 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html,'html.parser')
     featured_image_url = soup.find('img',class_ = 'fancybox-image')['src']
-    if "http:" not in featured_image_url: featured_image_url = "http://www.jpl.nasa.gov"+featured_image_url
+    if "http://www.jpl.nasa.gov" not in featured_image_url: featured_image_url = "http://www.jpl.nasa.gov"+featured_image_url
     # featured_image_url
     mars_data["featured_image_url"] = featured_image_url
 #### Mars Weather
@@ -91,5 +91,7 @@ def scrape():
     # print(mars_hemis)
     mars_data["mars_hemis"] = mars_hemis
     return mars_data
+    # exit the browser for clean re-run
+    browser.quit()
 
 
